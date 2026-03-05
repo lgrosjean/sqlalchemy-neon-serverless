@@ -24,6 +24,7 @@ class NeonServerlessAsyncDialect(NeonServerlessDialect):
     """Async variant of the Neon serverless dialect."""
 
     is_async = True
+    supports_statement_cache = True
 
     @classmethod
     def import_dbapi(cls):
