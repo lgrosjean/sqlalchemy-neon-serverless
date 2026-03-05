@@ -46,10 +46,16 @@ class NeonServerlessDialect(PGDialect):
     supports_sane_multi_rowcount = False
 
     @classmethod
-    def dbapi(cls):
+    def import_dbapi(cls):
         from sqlalchemy_neon_serverless import dbapi
 
         return dbapi
+
+    @classmethod
+    def get_async_dialect_cls(cls, url):
+        from sqlalchemy_neon_serverless.async_dialect import NeonServerlessAsyncDialect
+
+        return NeonServerlessAsyncDialect
 
     @classmethod
     def get_pool_class(cls, url):

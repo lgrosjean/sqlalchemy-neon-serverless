@@ -26,7 +26,7 @@ class NeonServerlessAsyncDialect(NeonServerlessDialect):
     is_async = True
 
     @classmethod
-    def dbapi(cls):
+    def import_dbapi(cls):
         from sqlalchemy_neon_serverless import adbapi
 
         return adbapi
