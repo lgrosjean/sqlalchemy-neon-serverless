@@ -1,0 +1,56 @@
+[project]
+name = "sqlalchemy-neon-serverless"
+version = "0.1.0"
+description = "SQLAlchemy dialect for Neon's serverless HTTP endpoint"
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "Leo Grosjean", email = "leo.grosjean@live.fr" }]
+requires-python = ">=3.10"
+keywords = ["sqlalchemy", "neon", "serverless", "postgresql", "http", "dbapi"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Database",
+    "Topic :: Database :: Front-Ends",
+]
+dependencies = [
+    "httpx>=0.25.0",
+    "sqlalchemy>=2.0.0",
+]
+
+[project.optional-dependencies]
+sqlmodel = ["sqlmodel>=0.0.22"]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-mock>=3.14.0",
+    "ruff>=0.8.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/lgrosjean/sqlalchemy-neon-serverless"
+Repository = "https://github.com/lgrosjean/sqlalchemy-neon-serverless"
+Issues = "https://github.com/lgrosjean/sqlalchemy-neon-serverless/issues"
+
+[project.entry-points."sqlalchemy.dialects"]
+"postgresql.neonserverless" = "sqlalchemy_neon_serverless.dialect:NeonServerlessDialect"
+
+[build-system]
+requires = ["uv_build>=0.8.18,<0.9.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "sqlalchemy_neon_serverless"
+module-root = "src"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 99
