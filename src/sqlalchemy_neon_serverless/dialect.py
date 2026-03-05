@@ -26,6 +26,13 @@ registry.register(
     "NeonServerlessDialect",
 )
 
+# Register async variant for create_async_engine("postgresql+neonserverless://...")
+registry.register(
+    "postgresql.neonserverless.async",
+    "sqlalchemy_neon_serverless.async_dialect",
+    "NeonServerlessAsyncDialect",
+)
+
 
 class NeonServerlessDialect(PGDialect):
     """PostgreSQL dialect that sends queries via Neon's HTTP /sql endpoint."""

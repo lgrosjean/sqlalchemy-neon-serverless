@@ -25,6 +25,7 @@ from sqlalchemy_neon_serverless.dbapi import (
     ProgrammingError,
     connect,
 )
+from sqlalchemy_neon_serverless.async_dialect import NeonServerlessAsyncDialect
 from sqlalchemy_neon_serverless.dialect import NeonServerlessDialect
 
 __all__ = [
@@ -33,6 +34,7 @@ __all__ = [
     "DatabaseError",
     "Error",
     "InterfaceError",
+    "NeonServerlessAsyncDialect",
     "NeonServerlessDialect",
     "OperationalError",
     "ProgrammingError",

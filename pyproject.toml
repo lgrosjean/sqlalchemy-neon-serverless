@@ -39,6 +39,7 @@ Issues = "https://github.com/lgrosjean/sqlalchemy-neon-serverless/issues"
 
 [project.entry-points."sqlalchemy.dialects"]
 "postgresql.neonserverless" = "sqlalchemy_neon_serverless.dialect:NeonServerlessDialect"
+"postgresql.neonserverless.async" = "sqlalchemy_neon_serverless.async_dialect:NeonServerlessAsyncDialect"
 
 [build-system]
 requires = ["uv_build>=0.8.18,<0.9.0"]
